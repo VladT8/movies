@@ -6,7 +6,10 @@ function App() {
   return (
     <div className="App">
       <MovieCard
-      title='Inception'
+        title='Inception'
+        posterUrl = ''
+        genre  = 'Sci-Fi, Action'
+        director = 'Christopher Nolan'
       />
     </div>
   );

@@ -1,14 +1,20 @@
 import React, { FC } from 'react';
-import { CardContainer } from './movieCard.styles';
+import { CardContainer, Info, Poster, Title } from './movieCard.styles';
 
 interface MovieCardProps {
   title: string;
+  posterUrl: string
+  genre: string
+  director: string
 }
 
-export const MovieCard: FC<MovieCardProps> = ({title}) => {
+export const MovieCard: FC<MovieCardProps> = ({title, posterUrl, genre, director }) => {
   return (
-    <>
-      <CardContainer>Title is {title}</CardContainer>
-    </>
+    <CardContainer>
+      <Poster src={posterUrl} alt={`${title}`}/>
+      <Title>{title}</Title>
+      <Info>Genre: {genre}</Info>
+      <Info>Director: {director}</Info>
+    </CardContainer>
   );
 };

@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { Theme } from '../../themeContext/themes';
+
+interface CardContainerProps {
+  theme: Theme
+}
 
 export const CardContainer = styled.div`
   border: 1px solid #ccc;
@@ -6,6 +11,7 @@ export const CardContainer = styled.div`
   margin: 16px;
   width: 300px;
   text-align: left;
+  background-color: ${props => props.theme.text};
 `;
 
 export const Poster = styled.img`
@@ -18,12 +24,12 @@ export const Poster = styled.img`
 export const Title = styled.h3`
   font-size: 24px;
   margin-bottom: 8px;
-  &::hover
-  {font-weight: 100}
+  color: ${props => props.theme.text};
 `
 
 export const Info = styled.h4`
   font-size: 18px;
   margin-bottom: 4px;
   font-weight: 600;
+  color: ${props => props.theme.text};
 `

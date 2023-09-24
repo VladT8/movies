@@ -8,11 +8,16 @@ interface HeaderContainerProps {
 export const HeaderContainer = styled.header`
   width: 100%;
   height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: ${props => props.theme.text};
 `;
 
 export const NavigationContainer = styled.nav`
-  
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
   background-color: ${props => props.theme.text};
 `;
 

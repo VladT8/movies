@@ -3,6 +3,7 @@ import React from 'react';
 import { MovieCard } from './components/ui/movieCard/movieCard';  // Изменено имя файла и путь
 import { Header } from './components/ui/header/header';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ThemeToggle from './components/ui/themeToggle/themeToggle';
 
 function App() {
   return (

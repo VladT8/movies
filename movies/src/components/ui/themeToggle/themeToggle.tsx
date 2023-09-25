@@ -1,31 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { ToggleContainer } from './themeToggle.styles';
+import { ChangeThemeButtonContainer } from './themeToggle.styles';
 import { ThemeType } from '../../themeContext/themes';
 import { ThemeContext } from '../../themeContext';
 
-const ThemeToggle: React.FC = () => {
+export const ChangeThemeButton: React.FC = () => {
    
-   const [theme, setTheme] = useState<ThemeType>("light")
+  
+  const [currentTheme, setTheme] = useState<ThemeType>("light");
 
-   const changeTheme = () => {
-     switch (theme) {
-       case 'light':
-         setTheme('dark');
-         break;
-       case 'dark':
-         setTheme('light');
-         break;
-     }
-   }
+  const toggleTheme = () => {
+    const newTheme = currentTheme === 'light'? 'dark' : 'light';
+    setTheme(newTheme)
+  }
 
   return (
-    <ToggleContainer>
-      <label>
-        <input type="checkbox" onChange={changeTheme} />
-        Change Theme
-      </label>
-    </ToggleContainer>
+    <ChangeThemeButtonContainer/>
   );
 };
-
-export default ThemeToggle;

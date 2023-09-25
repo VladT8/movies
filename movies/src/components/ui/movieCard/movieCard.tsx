@@ -1,5 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import { CardContainer, Info, Poster, Title } from './movieCard.styles';
+import { ThemeContext } from '../../themeContext';
+import { Theme } from '../../themeContext/themes';
 
 interface MovieCardProps {
   title: string;
@@ -8,9 +10,14 @@ interface MovieCardProps {
   director: string
 }
 
-export const MovieCard: FC<MovieCardProps> = ({title, posterUrl, genre, director }) => {
+export const MovieCard: FC<MovieCardProps> = ({title, posterUrl, genre, director }: MovieCardProps) => {
+
+  const themeContextData = useContext(ThemeContext)
+
   return (
-    <CardContainer>
+    <CardContainer
+      theme={themeContextData.stylesForTheme}
+      myTheme={themeContextData.currentTheme}>
       <Poster src={posterUrl} alt={`${title}`}/>
       <Title>{title}</Title>
       <Info>Genre: {genre}</Info>

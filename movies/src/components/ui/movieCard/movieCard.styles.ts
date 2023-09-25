@@ -1,17 +1,19 @@
 import styled from 'styled-components';
-import { Theme } from '../../themeContext/themes';
+import { Theme, ThemeType } from '../../themeContext/themes';
 
 interface CardContainerProps {
-  theme: Theme
+  theme?: Theme;
+  myTheme?: ThemeType;
 }
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div<CardContainerProps>`
   border: 1px solid #ccc;
   padding: 16px;
   margin: 16px;
   width: 300px;
   text-align: left;
-  background-color: ${props => props.theme.text};
+  background-color: ${({ theme }) => theme?.background};
+  color: ${({ theme }) => theme?.text};
 `;
 
 export const Poster = styled.img`
@@ -21,15 +23,15 @@ export const Poster = styled.img`
   margin-bottom: 12px;
 `
 
-export const Title = styled.h3`
+export const Title = styled.h3<CardContainerProps>`
   font-size: 24px;
   margin-bottom: 8px;
-  color: ${props => props.theme.text};
+  color: ${({ theme }) => theme?.text};
 `
 
-export const Info = styled.h4`
+export const Info = styled.h4<CardContainerProps>`
   font-size: 18px;
   margin-bottom: 4px;
   font-weight: 600;
-  color: ${props => props.theme.text};
+  color: ${({ theme }) => theme?.text};
 `

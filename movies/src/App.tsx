@@ -1,14 +1,37 @@
-import React from 'react';
-
-import { MovieCard } from './components/ui/movieCard/movieCard';  // Изменено имя файла и путь
-import { Header } from './components/ui/header/header';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ThemeToggle from './components/ui/themeToggle/themeToggle';
+
+import { ThemeContext } from './components/themeContext';
+import { ThemeType, Themes } from './components/themeContext/themes';
+import { Header } from './components/ui/header/header';
+import { MovieCard } from './components/ui/movieCard/movieCard';
+import { ChangeThemeButton } from './components/ui/themeToggle/themeToggle';
 
 function App() {
+
+    const [theme, setTheme] = useState<ThemeType>("light")
+
+  const changeTheme = () => {
+    switch (theme) {
+      case 'light':
+        setTheme('dark');
+        break;
+      case 'dark':
+        setTheme('light');
+        break;
+    }
+  }
+
+  
   return (
-    <Router>
+    <ThemeContext.Provider
+    value={{ currentTheme: theme,
+    stylesForTheme: Themes[theme]
+    }}>
+      <Router>
         <div className="App">
+        <h2>You are using {theme} theme</h2>
+        <button onClick={changeTheme}>CHANGE THEME</button>
           <Header/>
           <Routes>
             {/* <Route path="/" element={<SignUpForm/>}/>
@@ -25,8 +48,8 @@ function App() {
             director = 'Christopher Nolan'
           />
         </div>
-    </Router>
-    
+      </Router>
+    </ThemeContext.Provider>    
   );
 }
 

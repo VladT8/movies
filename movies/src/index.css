@@ -88,7 +88,7 @@ a:hover{text-decoration: none;}
 ul, li{list-style-type: none;}
 img{vertical-align: top;}
 
-h1,h2,h3,h4,h5,h6,p,a{font-style: inherit; font-weight: inherit; font-size: inherit;}
+h1,h2,h3,h4,h5,h6,p,a,li{font-style: inherit; font-weight: inherit; font-size: inherit; color: inherit;}
 
 
 .container {

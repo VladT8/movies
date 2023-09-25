@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 
-export const ToggleContainer = styled.div`
-  label {
-    display: flex;
-    align-items: center;
-  }
-
-  input {
-    margin-right: 8px;
-  }
+export const ChangeThemeButtonContainer = styled.button`
+  width: 100px;
+  height: 100px;
 `;

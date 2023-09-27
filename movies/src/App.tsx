@@ -7,6 +7,8 @@ import { Header } from './components/ui/header/header';
 import { MovieCard } from './components/ui/movieCard/movieCard';
 import { ChangeThemeButton } from './components/ui/themeToggle/themeToggle';
 import { FormComponent } from './components/shared/form/form';
+import { SignInComponent } from './components/ui/auth/SignIn';
+import { SignUpComponent } from './components/ui/auth/SignUp';
 
 function App() {
 
@@ -34,7 +36,8 @@ function App() {
         <h2>You are using {theme} theme</h2>
         <button onClick={changeTheme}>CHANGE THEME</button>
           <Header/>
-          <FormComponent formName={'sign'}/>
+          <SignUpComponent formName='SignUp'/>
+          <SignInComponent formName='SignIn'/>
           <Routes>
             {/* <Route path="/" element={<SignUpForm/>}/>
             <Route path="/main" element={<Main/>}/>

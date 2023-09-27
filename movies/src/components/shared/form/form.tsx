@@ -14,12 +14,13 @@ interface formikProps {
 }
 
 interface formikComponentProps {
-   formName: string
+   formName: string,
+   children?: any
 }
 
 const regularExpressionPassword = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
 
-export const FormComponent: React.FC<formikComponentProps> = ({formName}) => {
+export const FormComponent: React.FC<formikComponentProps> = ({formName, children}) => {
 
    return (
       <Formik<formikProps> 
@@ -57,41 +58,7 @@ export const FormComponent: React.FC<formikComponentProps> = ({formName}) => {
             <FormTitle>{formName}</FormTitle>
             <Form action='' className='form'>
                <FormInputs>
-                  <Field 
-                     type='text'
-                     name='firstName' 
-                     placeholder='First Name'
-                  />
-                  <ErrorMessage className='form__error' name='firstName'>{msg => <FormError>{msg}</FormError>}</ErrorMessage>
-                  <Field 
-                     type='text'
-                     name='lastName' 
-                     placeholder='Last Name' 
-                  />
-                  <ErrorMessage className='form__error' name='lastName'>{msg => <FormError>{msg}</FormError>}</ErrorMessage>
-                  <Field 
-                     type='email'
-                     name='email' 
-                     placeholder='Email' 
-                  />
-                  <ErrorMessage className='form__error' name='email'>{msg => <FormError>{msg}</FormError>}</ErrorMessage>
-                  <Field 
-                     type='password'
-                     name='password' 
-                     placeholder='Password' 
-                  />
-                  <ErrorMessage className='form__error' name='password'>{msg => <FormError>{msg}</FormError>}</ErrorMessage>
-                  <Field 
-                     type='password'
-                     name='repeatPassword'
-                     placeholder='Repeat password' 
-                  />
-                  <ErrorMessage className='form__error' name='repeatPassword'>{msg => <FormError>{msg}</FormError>}</ErrorMessage>
-                  <CheckboxLabel>
-                     <Field type='checkbox' name='terms' />
-                     Согласиться с политикой конфиденциальности
-                  </CheckboxLabel>
-                  <ErrorMessage className='form__error' name='terms'>{msg => <FormError>{msg}</FormError>}</ErrorMessage>
+                  {children}
                </FormInputs>
                <ButtonWrapper>
                   <ButtonComponent onClick={() => alert('Form submitted')} buttonText={'SUBMIT'}/>

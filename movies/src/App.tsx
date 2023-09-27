@@ -34,6 +34,7 @@ function App() {
         <h2>You are using {theme} theme</h2>
         <button onClick={changeTheme}>CHANGE THEME</button>
           <Header/>
+          <FormComponent formName={'sign'}/>
           <Routes>
             {/* <Route path="/" element={<SignUpForm/>}/>
             <Route path="/main" element={<Main/>}/>
@@ -49,7 +50,6 @@ function App() {
             director = 'Christopher Nolan'
           />
         </div>
-        <FormComponent formName={'sign'}/>
       </Router>
     </ThemeContext.Provider>    
   );

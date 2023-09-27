@@ -1,7 +1,7 @@
 import { useFormik } from 'formik'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import { FormContainer, FormError } from './form.styles'
+import { ButtonWrapper, CheckboxLabel, FormContainer, FormError, FormInputs, FormTitle } from './form.styles'
 import { ButtonComponent } from '../button/button'
 
 interface formikProps {
@@ -54,9 +54,9 @@ export const FormComponent: React.FC<formikComponentProps> = ({formName}) => {
          onSubmit = {values => alert(JSON.stringify(values, null, 2))}
       >
          <FormContainer>
-         <h2>{formName}</h2>
+            <FormTitle>{formName}</FormTitle>
             <Form action='' className='form'>
-               <div className="form__inputs">
+               <FormInputs>
                   <Field 
                      type='text'
                      name='firstName' 
@@ -87,13 +87,15 @@ export const FormComponent: React.FC<formikComponentProps> = ({formName}) => {
                      placeholder='Repeat password' 
                   />
                   <ErrorMessage className='form__error' name='repeatPassword'>{msg => <FormError>{msg}</FormError>}</ErrorMessage>
-                  <Field 
-                     type='checkbox'
-                     name='terms'
-                  />
+                  <CheckboxLabel>
+                     <Field type='checkbox' name='terms' />
+                     Согласиться с политикой конфиденциальности
+                  </CheckboxLabel>
                   <ErrorMessage className='form__error' name='terms'>{msg => <FormError>{msg}</FormError>}</ErrorMessage>
-               </div>
-               <ButtonComponent onClick={() => alert('Form submitted')} buttonText={'SUBMIT'}/>
+               </FormInputs>
+               <ButtonWrapper>
+                  <ButtonComponent onClick={() => alert('Form submitted')} buttonText={'SUBMIT'}/>
+               </ButtonWrapper>
             </Form>
          </FormContainer>
       </Formik>

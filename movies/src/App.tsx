@@ -6,6 +6,7 @@ import { ThemeType, Themes } from './components/themeContext/themes';
 import { Header } from './components/ui/header/header';
 import { MovieCard } from './components/ui/movieCard/movieCard';
 import { ChangeThemeButton } from './components/ui/themeToggle/themeToggle';
+import { FormComponent } from './components/shared/form/form';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
             director = 'Christopher Nolan'
           />
         </div>
+        <FormComponent formName={'sign'}/>
       </Router>
     </ThemeContext.Provider>    
   );

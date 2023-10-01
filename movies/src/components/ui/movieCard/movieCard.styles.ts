@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Theme, ThemeType } from '../../themeContext/themes';
+import styled from "styled-components";
+import { Theme, ThemeType } from "../../themeContext/themes";
 
 interface CardContainerProps {
   theme?: Theme;
@@ -21,17 +21,17 @@ export const Poster = styled.img`
   max-height: 200px;
   object-fit: cover;
   margin-bottom: 12px;
-`
+`;
 
 export const Title = styled.h3<CardContainerProps>`
   font-size: 24px;
   margin-bottom: 8px;
   color: ${({ theme }) => theme?.text};
-`
+`;
 
 export const Info = styled.h4<CardContainerProps>`
   font-size: 18px;
   margin-bottom: 4px;
   font-weight: 600;
   color: ${({ theme }) => theme?.text};
-`
+`;

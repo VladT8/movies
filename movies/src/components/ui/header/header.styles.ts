@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Theme, ThemeType } from '../../themeContext/themes';
+import styled from "styled-components";
+import { Theme, ThemeType } from "../../themeContext/themes";
 
 interface HeaderContainerProps {
   theme?: Theme;
@@ -29,11 +29,11 @@ export const NavUl = styled.ul<HeaderContainerProps>`
   justify-content: space-between;
   background-color: ${({ theme }) => theme?.background};
   color: ${({ theme }) => theme?.text};
-`
+`;
 
-// export const NavLi = styled.li<HeaderContainerProps>`
-//   height: 100px;
-//   cursor: pointer;
-//   background-color: ${({ theme }) => theme?.background};
-//   color: ${({ theme }) => theme?.text};
-// `
+export const NavLi = styled.li<HeaderContainerProps>`
+  height: 100px;
+  cursor: pointer;
+  background-color: ${({ theme }) => theme?.background};
+  color: ${({ theme }) => theme?.text};
+`;

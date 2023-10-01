@@ -22,11 +22,13 @@ export const FormTitle = styled.h2<FormContainerProps>`
    font-weight: 600;
    color: ${({ theme }) => theme?.text};
    margin-bottom: 20px;
+   text-align: center;
 `
 
 export const FormInputs = styled.div<FormContainerProps>`
    display: flex;
    flex-direction: column;
+   width: 100%;
    input {
       height: 40px;
       padding: 10px;

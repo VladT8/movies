@@ -8,10 +8,11 @@ interface HeaderContainerProps {
 
 export const HeaderContainer = styled.header<HeaderContainerProps>`
   width: 100%;
-  height: 50px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid black;
   background-color: ${({ theme }) => theme?.background};
   color: ${({ theme }) => theme?.text};
 `;
@@ -32,7 +33,7 @@ export const NavUl = styled.ul<HeaderContainerProps>`
 `;
 
 export const NavLi = styled.li<HeaderContainerProps>`
-  height: 100px;
+  height: 50px;
   cursor: pointer;
   background-color: ${({ theme }) => theme?.background};
   color: ${({ theme }) => theme?.text};

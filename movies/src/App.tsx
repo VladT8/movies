@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { ThemeContext } from "./components/themeContext";
@@ -12,16 +12,8 @@ import { SignUpComponent } from "./components/ui/auth/SignUp";
 
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
-
   const changeTheme = () => {
-    switch (theme) {
-      case "light":
-        setTheme("dark");
-        break;
-      case "dark":
-        setTheme("light");
-        break;
-    }
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
@@ -31,8 +23,7 @@ function App() {
       <Router>
         <div className="App">
           <h2>You are using {theme} theme</h2>
-          <button onClick={changeTheme}>CHANGE THEME</button>
-          <Header />
+          <Header changeTheme={changeTheme}/>
           <SignUpComponent formName={"SignUp"} />
           <SignInComponent formName={"SignIn"} />
           <Routes>

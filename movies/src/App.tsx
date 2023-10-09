@@ -9,6 +9,7 @@ import { ChangeThemeButton } from "./components/ui/themeToggle/themeToggle";
 import { FormComponent } from "./components/shared/form/form";
 import { SignInComponent } from "./components/ui/auth/SignIn";
 import { SignUpComponent } from "./components/ui/auth/SignUp";
+import { Main } from "./components/ui/main/main";
 
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
@@ -20,28 +21,38 @@ function App() {
     <ThemeContext.Provider
       value={{ currentTheme: theme, stylesForTheme: Themes[theme] }}
     >
-      <Router>
-        <div className="App">
-          <h2>You are using {theme} theme</h2>
-          <Header changeTheme={changeTheme}/>
-          <SignUpComponent formName={"SignUp"} />
-          <SignInComponent formName={"SignIn"} />
-          <Routes>
-            {/* <Route path="/" element={<SignUpForm/>}/>
+      <div className="container">
+        <Router>
+          <div className="App">
+            <h2>You are using {theme} theme</h2>
+            <Header changeTheme={changeTheme} />
+            {/* <SignUpComponent formName={"SignUp"} />
+          <SignInComponent formName={"SignIn"} /> */}
+            <Routes>
+              {/* <Route path="/" element={<SignUpForm/>}/>
             <Route path="/main" element={<Main/>}/>
             <Route path="/login" element={<LoginForm/>}/>
             <Route path="/posts" element={<Posts/>}/>
             <Route path="/posts/:id" element={<SinglePost/>}/>
             <Route path="*" element={<NotFoundComponent/>}/> */}
-          </Routes>
-          <MovieCard
-            title="Inception"
-            posterUrl=""
-            genre="Sci-Fi, Action"
-            director="Christopher Nolan"
-          />
-        </div>
-      </Router>
+            </Routes>
+            <Main>
+              <MovieCard
+                title="Inception"
+                posterUrl=""
+                genre="Sci-Fi, Action"
+                director="Christopher Nolan"
+              />
+              <MovieCard
+                title="Inception"
+                posterUrl=""
+                genre="Sci-Fi, Action"
+                director="Christopher Nolan"
+              />
+            </Main>
+          </div>
+        </Router>
+      </div>
     </ThemeContext.Provider>
   );
 }

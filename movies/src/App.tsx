@@ -36,20 +36,7 @@ function App() {
             <Route path="/posts/:id" element={<SinglePost/>}/>
             <Route path="*" element={<NotFoundComponent/>}/> */}
             </Routes>
-            <Main>
-              <MovieCard
-                title="Inception"
-                posterUrl=""
-                genre="Sci-Fi, Action"
-                director="Christopher Nolan"
-              />
-              <MovieCard
-                title="Inception"
-                posterUrl=""
-                genre="Sci-Fi, Action"
-                director="Christopher Nolan"
-              />
-            </Main>
+            <Main />
           </div>
         </Router>
       </div>

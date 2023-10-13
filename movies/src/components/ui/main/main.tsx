@@ -14,9 +14,6 @@ export const Main: FC<MainProps> = ({}: MainProps) => {
     >
       <MovieCard
         title="Inception"
-        posterUrl=""
-        genre="Sci-Fi, Action"
-        director="Christopher Nolan"
       />
     </MainContainer>
   );

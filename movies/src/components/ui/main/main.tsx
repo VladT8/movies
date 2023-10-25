@@ -9,12 +9,19 @@ export const Main: FC<MainProps> = ({}: MainProps) => {
   const themeContextData = useContext(ThemeContext);
   return (
     <MainContainer
+      className="main"
       theme={themeContextData.stylesForTheme}
       myTheme={themeContextData.currentTheme}
     >
-      <MovieCard
-        title="Inception"
-      />
+      <MovieCard title="The Departed" />
+      <MovieCard title="The Departed" />
+      <MovieCard title="The Departed" />
+      <MovieCard title="The Departed" />
+      <MovieCard title="The Departed" />
+      <MovieCard title="The Departed" />
+      <MovieCard title="The Departed" />
+      <MovieCard title="The Departed" />
+      <MovieCard title="The Departed" />
     </MainContainer>
   );
 };

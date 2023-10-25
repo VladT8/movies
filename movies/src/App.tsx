@@ -10,6 +10,7 @@ import { FormComponent } from "./components/shared/form/form";
 import { SignInComponent } from "./components/ui/auth/SignIn";
 import { SignUpComponent } from "./components/ui/auth/SignUp";
 import { Main } from "./components/ui/main/main";
+import { Footer } from "./components/ui/footer/footer";
 
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
@@ -21,25 +22,27 @@ function App() {
     <ThemeContext.Provider
       value={{ currentTheme: theme, stylesForTheme: Themes[theme] }}
     >
-      <div className="container">
-        <Router>
-          <div className="App">
-            <h2>You are using {theme} theme</h2>
-            <Header changeTheme={changeTheme} />
-            {/* <SignUpComponent formName={"SignUp"} />
+      <Router>
+        <div className="App">
+          <div className="wrapper">
+            <div className="container">
+              <Header changeTheme={changeTheme} />
+              {/* <SignUpComponent formName={"SignUp"} />
           <SignInComponent formName={"SignIn"} /> */}
-            <Routes>
-              {/* <Route path="/" element={<SignUpForm/>}/>
+              <Routes>
+                {/* <Route path="/" element={<SignUpForm/>}/>
             <Route path="/main" element={<Main/>}/>
             <Route path="/login" element={<LoginForm/>}/>
             <Route path="/posts" element={<Posts/>}/>
             <Route path="/posts/:id" element={<SinglePost/>}/>
             <Route path="*" element={<NotFoundComponent/>}/> */}
-            </Routes>
-            <Main />
+              </Routes>
+              <Main />
+              <Footer />
+            </div>
           </div>
-        </Router>
-      </div>
+        </div>
+      </Router>
     </ThemeContext.Provider>
   );
 }

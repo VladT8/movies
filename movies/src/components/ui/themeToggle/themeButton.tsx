@@ -7,7 +7,8 @@ interface ButtonThemeTogglerProps {
 }
 
 export const ButtonThemeToggler: FC<ButtonThemeTogglerProps> = ({
-  onClick, isActive
+  onClick,
+  isActive,
 }) => {
   return (
     <ThemeButtonStyle

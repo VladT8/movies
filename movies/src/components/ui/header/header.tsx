@@ -1,9 +1,6 @@
 import React, { FC, useContext, useState } from "react";
 
-import {
-  HeaderContainer,
-  InputSearchStyle,
-} from "./header.styles";
+import { HeaderContainer, InputSearchStyle } from "./header.styles";
 import { ThemeContext } from "../../themeContext";
 import { Burger } from "./Burger";
 import { ThemeButtonStyle } from "../themeToggle/themeButton.styles";
@@ -16,7 +13,11 @@ interface HeaderContainerProps {
   isActive: boolean;
 }
 
-export const Header: FC<HeaderContainerProps> = ({ nav, changeTheme, isActive }) => {
+export const Header: FC<HeaderContainerProps> = ({
+  nav,
+  changeTheme,
+  isActive,
+}) => {
   const themeContextData = useContext(ThemeContext);
 
   return (
@@ -27,10 +28,7 @@ export const Header: FC<HeaderContainerProps> = ({ nav, changeTheme, isActive })
     >
       <Burger />
       <InputSearchStyle placeholder="movie title..." />
-      <ButtonThemeToggler
-        onClick={changeTheme}
-        isActive={isActive}
-      />
+      <ButtonThemeToggler onClick={changeTheme} isActive={isActive} />
     </HeaderContainer>
   );
 };

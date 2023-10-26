@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Theme, ThemeType } from '../../themeContext/themes';
+import styled from "styled-components";
+import { Theme, ThemeType } from "../../themeContext/themes";
 
 interface ThemeButtonStyleProps {
   theme?: Theme;

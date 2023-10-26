@@ -1,9 +1,8 @@
-import React, { FC, useContext, useState } from "react";
+import { FC, useContext } from "react";
 
 import { HeaderContainer, InputSearchStyle } from "./header.styles";
 import { ThemeContext } from "../../themeContext";
 import { Burger } from "./Burger";
-import { ThemeButtonStyle } from "../themeToggle/themeButton.styles";
 import { ButtonThemeToggler } from "../themeToggle/themeButton";
 
 interface HeaderContainerProps {

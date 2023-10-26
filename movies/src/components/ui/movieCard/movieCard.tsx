@@ -7,7 +7,6 @@ import {
   Title,
 } from "./movieCard.styles";
 import { ThemeContext } from "../../themeContext";
-import { Theme } from "../../themeContext/themes";
 
 interface MovieCardProps {
   title: string;

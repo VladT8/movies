@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from "react";
+import React, { FC, useContext } from "react";
 import { ThemeContext } from "../../themeContext";
 import { MainContainer } from "./main.styles";
 import { MovieCard } from "../movieCard/movieCard";

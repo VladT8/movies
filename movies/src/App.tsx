@@ -5,7 +5,6 @@ import { ThemeContext } from "./components/themeContext";
 import { ThemeType, Themes } from "./components/themeContext/themes";
 import { Header } from "./components/ui/header/header";
 import { MovieCard } from "./components/ui/movieCard/movieCard";
-import { ChangeThemeButton } from "./components/ui/themeToggle/themeToggle";
 import { FormComponent } from "./components/shared/form/form";
 import { SignInComponent } from "./components/ui/auth/SignIn";
 import { SignUpComponent } from "./components/ui/auth/SignUp";
@@ -26,7 +25,7 @@ function App() {
         <div className="App">
           <div className="wrapper">
             <div className="container">
-              <Header changeTheme={changeTheme} />
+              <Header changeTheme={changeTheme} isActive={theme === "dark"} />
               {/* <SignUpComponent formName={"SignUp"} />
           <SignInComponent formName={"SignIn"} /> */}
               <Routes>

@@ -10,8 +10,8 @@ const StyledBurger = styled.div<BurgeContainerProps>`
   width: 30px;
   height: 30px;
   position: fixed;
-  top: 15px;
-  left: 20px;
+  top: 35px;
+  left: 30px;
   display: flex;
   justify-content: space-between;
   flex-flow: column nowrap;

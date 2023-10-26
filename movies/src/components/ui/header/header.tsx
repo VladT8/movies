@@ -2,26 +2,22 @@ import React, { FC, useContext, useState } from "react";
 
 import {
   HeaderContainer,
-  NavLi,
-  NavUl,
-  NavigationContainer,
+  InputSearchStyle,
 } from "./header.styles";
-import { Link } from "react-router-dom";
 import { ThemeContext } from "../../themeContext";
-import { ChangeThemeButton } from "../themeToggle/themeToggle";
-import { ThemeType } from "../../themeContext/themes";
 import { Burger } from "./Burger";
+import { ThemeButtonStyle } from "../themeToggle/themeButton.styles";
+import { ButtonThemeToggler } from "../themeToggle/themeButton";
 
 interface HeaderContainerProps {
   nav?: string;
   children?: any;
   changeTheme: () => void;
+  isActive: boolean;
 }
 
-export const Header: FC<HeaderContainerProps> = ({ nav, changeTheme }) => {
+export const Header: FC<HeaderContainerProps> = ({ nav, changeTheme, isActive }) => {
   const themeContextData = useContext(ThemeContext);
-
-  const [theme, setTheme] = useState<ThemeType>("light");
 
   return (
     <HeaderContainer
@@ -30,9 +26,11 @@ export const Header: FC<HeaderContainerProps> = ({ nav, changeTheme }) => {
       myTheme={themeContextData.currentTheme}
     >
       <Burger />
-
-      <div className="search">PLACE FOR SEARCH</div>
-      <button onClick={changeTheme}>CHANGE THEME</button>
+      <InputSearchStyle placeholder="movie title..." />
+      <ButtonThemeToggler
+        onClick={changeTheme}
+        isActive={isActive}
+      />
     </HeaderContainer>
   );
 };

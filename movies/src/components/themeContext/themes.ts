@@ -1,8 +1,8 @@
 enum Colors {
-  TEXT_LIGHT = "#000000",
-  TEXT_DARK = "#FFFFFF",
-  BACKGROUND_LIGHT = "#BA7978",
-  BACKGROUND_DARK = "#592d2d",
+  TEXT_LIGHT = "#00141e",
+  TEXT_DARK = "#c8cdcd",
+  BACKGROUND_LIGHT = "#eee",
+  BACKGROUND_DARK = "#0f2d37",
 }
 
 export type ThemeType = "light" | "dark";

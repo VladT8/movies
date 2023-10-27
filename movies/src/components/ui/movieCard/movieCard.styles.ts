@@ -14,6 +14,10 @@ export const CardContainer = styled.div<CardContainerProps>`
   text-align: left;
   background-color: ${({ theme }) => theme?.background};
   color: ${({ theme }) => theme?.text};
+  @media (max-width: 768px) {
+    width: 200px;
+    margin: 16px 0;
+  }
 `;
 
 export const Poster = styled.img`
@@ -27,6 +31,10 @@ export const Title = styled.h3<CardContainerProps>`
   font-weight: 600;
   margin-bottom: 8px;
   color: ${({ theme }) => theme?.text};
+  @media (max-width: 768px) {
+    font-size: 20px;
+  font-weight: 600;
+  }
 `;
 
 export const DirectorInfo = styled.h4<CardContainerProps>`
@@ -34,10 +42,18 @@ export const DirectorInfo = styled.h4<CardContainerProps>`
   margin-bottom: 4px;
   font-weight: 400;
   color: ${({ theme }) => theme?.text};
+  @media (max-width: 768px) {
+    font-size: 16px;
+  font-weight: 400;
+  }
 `;
 
 export const GenreInfo = styled.h4<CardContainerProps>`
   font-size: 16px;
   font-weight: 400;
   color: ${({ theme }) => theme?.text};
+  @media (max-width: 768px) {
+    font-size: 14px;
+  font-weight: 400;
+  }
 `;

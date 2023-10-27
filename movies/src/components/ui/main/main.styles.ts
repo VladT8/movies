@@ -10,7 +10,7 @@ export const MainContainer = styled.main<MainContainerProps>`
   display: flex;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   flex-grow: 1;
   border: 1px solid #ccc;

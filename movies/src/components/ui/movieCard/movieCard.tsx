@@ -7,12 +7,17 @@ import {
   Title,
 } from "./movieCard.styles";
 import { ThemeContext } from "../../themeContext";
+import {
+  AddFavorite,
+  AddFavoriteProps,
+} from "../../shared/favoriteIcon/AddFavorite";
 
 interface MovieCardProps {
   title: string;
   posterUrl?: string;
   genre?: string;
   director?: string;
+  favoriteComponent?: FC<AddFavoriteProps>;
 }
 
 export const MovieCard: FC<MovieCardProps> = ({ title }: MovieCardProps) => {
@@ -46,6 +51,7 @@ export const MovieCard: FC<MovieCardProps> = ({ title }: MovieCardProps) => {
           <Title>{movieData.Title}</Title>
           <DirectorInfo>Director: {movieData.Director}</DirectorInfo>
           <GenreInfo>Genre: {movieData.Genre}</GenreInfo>
+          {/* <AddFavorite /> */}
         </>
       )}
     </CardContainer>

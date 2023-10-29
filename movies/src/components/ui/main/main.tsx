@@ -3,6 +3,10 @@ import { ThemeContext } from "../../themeContext";
 import { MainContainer } from "./main.styles";
 import { MovieCard } from "../movieCard/movieCard";
 import { MovieData, MovieList } from "../movieList/movieList";
+import {
+  AddFavorite,
+  AddFavoriteProps,
+} from "../../shared/favoriteIcon/AddFavorite";
 
 interface MainProps {
   movies: MovieData[];
@@ -16,7 +20,7 @@ export const Main: FC<MainProps> = ({ movies }) => {
       theme={themeContextData.stylesForTheme}
       myTheme={themeContextData.currentTheme}
     >
-      <MovieList movies={movies} />
+      <MovieList movies={movies} favoriteComponent={AddFavorite} />
       <MovieCard title="The Departed" />
       <MovieCard title="The Departed" />
       <MovieCard title="The Departed" />

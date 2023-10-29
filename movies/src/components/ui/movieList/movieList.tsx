@@ -1,6 +1,10 @@
 import React, { FC, useContext } from "react";
 import { ThemeContext } from "../../themeContext";
 import { MovieListContainer } from "./movieList.styles";
+import {
+  AddFavorite,
+  AddFavoriteProps,
+} from "../../shared/favoriteIcon/AddFavorite";
 import { MovieCard } from "../movieCard/movieCard";
 import {
   DirectorInfo,
@@ -16,24 +20,32 @@ export interface MovieData {
   Poster: string;
   Director: string;
   Genre: string;
+  favoriteComponent?: () => Element;
 }
 interface MovieListProps {
   movies: MovieData[];
+  favoriteComponent: FC<AddFavoriteProps>;
 }
 
-export const MovieList: FC<MovieListProps> = ({ movies }) => {
+export const MovieList: FC<MovieListProps> = ({
+  movies,
+  favoriteComponent,
+}) => {
   const themeContextData = useContext(ThemeContext);
+//   const FavoriteComponent = favoriteComponent;
   return (
     <MovieListContainer>
-      {movies.map((movie, index) => (
+      {movies.map((movie, index, handleFavoritesClick) => (
         <CardContainer
           key={index}
           theme={themeContextData.stylesForTheme}
           myTheme={themeContextData.currentTheme}
+          onClick={() => handleFavoritesClick}
         >
           <>
             <Poster src={movie.Poster} alt={`${movie.Title}`} />
             <Title>{movie.Title}</Title>
+            {/* <FavoriteComponent /> */}
           </>
         </CardContainer>
       ))}

@@ -12,6 +12,8 @@ import { Main } from "./components/ui/main/main";
 import { Footer } from "./components/ui/footer/footer";
 import { MovieList } from "./components/ui/movieList/movieList";
 import { SearchBox } from "./components/ui/searchInput/searchBox";
+import { AddFavorite } from "./components/shared/favoriteIcon/AddFavorite";
+import { NotFoundComponent } from "./components/ui/empty/empty";
 
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
@@ -43,27 +45,30 @@ function App() {
     >
       <Router>
         <div className="App">
-          <div className="wrapper">
-            <div className="container">
-              <Header
-                changeTheme={changeTheme}
-                isActive={theme === "dark"}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
+          <div className="container">
+            <Header
+              changeTheme={changeTheme}
+              isActive={theme === "dark"}
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+            />
+            <Routes>
+              <Route path="/" element={<Main movies={movies} />} />
+              <Route path="/main" element={<Main movies={movies} />} />
+              <Route
+                path="/register"
+                element={<SignUpComponent formName={"SignUp"} />}
               />
-              {/* <SignUpComponent formName={"SignUp"} />
-          <SignInComponent formName={"SignIn"} /> */}
-              <Routes>
-                {/* <Route path="/" element={<SignUpForm/>}/>
-            <Route path="/main" element={<Main/>}/>
-            <Route path="/login" element={<LoginForm/>}/>
-            <Route path="/posts" element={<Posts/>}/>
-            <Route path="/posts/:id" element={<SinglePost/>}/>
-            <Route path="*" element={<NotFoundComponent/>}/> */}
-              </Routes>
-              <Main movies={movies} />
-              <Footer />
-            </div>
+              <Route
+                path="/login"
+                element={<SignInComponent formName={"SignIn"} />}
+              />
+              {/* <Route path="/posts" element={<Posts />} /> */}
+              {/* <Route path="/posts/:id" element={<SinglePost />} /> */}
+              <Route path="*" element={<NotFoundComponent />} />
+            </Routes>
+
+            <Footer />
           </div>
         </div>
       </Router>

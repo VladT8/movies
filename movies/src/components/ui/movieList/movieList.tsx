@@ -10,7 +10,7 @@ import {
   CardContainer,
 } from "../movieCard/movieCard.styles";
 
-interface MovieData {
+export interface MovieData {
   Title: string;
   Year?: string;
   Poster: string;

@@ -2,11 +2,13 @@ import React, { FC, useContext } from "react";
 import { ThemeContext } from "../../themeContext";
 import { MainContainer } from "./main.styles";
 import { MovieCard } from "../movieCard/movieCard";
-import { MovieList } from "../movieList/movieList";
+import { MovieData, MovieList } from "../movieList/movieList";
 
-interface MainProps {}
+interface MainProps {
+  movies: MovieData[];
+}
 
-export const Main: FC<MainProps> = ({}: MainProps) => {
+export const Main: FC<MainProps> = ({ movies }) => {
   const themeContextData = useContext(ThemeContext);
   return (
     <MainContainer
@@ -14,12 +16,7 @@ export const Main: FC<MainProps> = ({}: MainProps) => {
       theme={themeContextData.stylesForTheme}
       myTheme={themeContextData.currentTheme}
     >
-      <MovieCard title="The Departed" />
-      <MovieCard title="The Departed" />
-      <MovieCard title="The Departed" />
-      <MovieCard title="The Departed" />
-      <MovieCard title="The Departed" />
-      <MovieCard title="The Departed" />
+      <MovieList movies={movies} />
       <MovieCard title="The Departed" />
       <MovieCard title="The Departed" />
       <MovieCard title="The Departed" />

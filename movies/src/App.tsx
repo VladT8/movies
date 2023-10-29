@@ -61,8 +61,7 @@ function App() {
             <Route path="/posts/:id" element={<SinglePost/>}/>
             <Route path="*" element={<NotFoundComponent/>}/> */}
               </Routes>
-              <MovieList movies={movies} />
-              <Main />
+              <Main movies={movies} />
               <Footer />
             </div>
           </div>

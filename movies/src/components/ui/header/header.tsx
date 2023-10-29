@@ -11,14 +11,16 @@ interface HeaderContainerProps {
   children?: any;
   changeTheme: () => void;
   isActive: boolean;
-  onSearch?: (searchText: string) => void;
+  searchValue?: string;
+  setSearchValue: (value: string) => void;
 }
 
 export const Header: FC<HeaderContainerProps> = ({
   nav,
   changeTheme,
   isActive,
-  onSearch,
+  searchValue,
+  setSearchValue,
 }) => {
   const themeContextData = useContext(ThemeContext);
 
@@ -29,8 +31,7 @@ export const Header: FC<HeaderContainerProps> = ({
       myTheme={themeContextData.currentTheme}
     >
       <Burger />
-      {/* <SearchInput onSearch={onSearch} /> */}
-      {/* <SearchBox /> */}
+      <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <ButtonThemeToggler onClick={changeTheme} isActive={isActive} />
     </HeaderContainer>

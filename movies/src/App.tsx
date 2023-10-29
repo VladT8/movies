@@ -45,7 +45,12 @@ function App() {
         <div className="App">
           <div className="wrapper">
             <div className="container">
-              <Header changeTheme={changeTheme} isActive={theme === "dark"} />
+              <Header
+                changeTheme={changeTheme}
+                isActive={theme === "dark"}
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+              />
               {/* <SignUpComponent formName={"SignUp"} />
           <SignInComponent formName={"SignIn"} /> */}
               <Routes>
@@ -56,10 +61,6 @@ function App() {
             <Route path="/posts/:id" element={<SinglePost/>}/>
             <Route path="*" element={<NotFoundComponent/>}/> */}
               </Routes>
-              <SearchBox
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-              />
               <MovieList movies={movies} />
               <Main />
               <Footer />

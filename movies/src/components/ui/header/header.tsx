@@ -1,21 +1,24 @@
 import { FC, useContext } from "react";
 
-import { HeaderContainer, InputSearchStyle } from "./header.styles";
+import { HeaderContainer } from "./header.styles";
 import { ThemeContext } from "../../themeContext";
 import { Burger } from "./Burger";
 import { ButtonThemeToggler } from "../themeToggle/themeButton";
+import { SearchBox } from "../searchInput/searchBox";
 
 interface HeaderContainerProps {
   nav?: string;
   children?: any;
   changeTheme: () => void;
   isActive: boolean;
+  onSearch?: (searchText: string) => void;
 }
 
 export const Header: FC<HeaderContainerProps> = ({
   nav,
   changeTheme,
   isActive,
+  onSearch,
 }) => {
   const themeContextData = useContext(ThemeContext);
 
@@ -26,7 +29,9 @@ export const Header: FC<HeaderContainerProps> = ({
       myTheme={themeContextData.currentTheme}
     >
       <Burger />
-      <InputSearchStyle placeholder="movie title..." />
+      {/* <SearchInput onSearch={onSearch} /> */}
+      {/* <SearchBox /> */}
+
       <ButtonThemeToggler onClick={changeTheme} isActive={isActive} />
     </HeaderContainer>
   );

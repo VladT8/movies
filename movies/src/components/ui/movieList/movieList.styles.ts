@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { Theme, ThemeType } from "../../themeContext/themes";
 
-interface MainContainerProps {
+interface movieListProps {
   theme?: Theme;
   myTheme?: ThemeType;
 }
 
-export const MainContainer = styled.main<MainContainerProps>`
+export const MovieListContainer = styled.section<movieListProps>`
   width: 100%;
   display: flex;
   justify-content: space-around;

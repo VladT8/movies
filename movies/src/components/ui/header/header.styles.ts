@@ -20,30 +20,6 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
   color: ${({ theme }) => theme?.text};
 `;
 
-export const InputSearchStyle = styled.input`
-  width: 200px;
-  height: 40px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #eee;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.2s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  &:hover {
-    border-color: #333;
-  }
-
-  &:focus {
-    border-color: #007bff;
-  }
-  @media (max-width: 768px) {
-    margin: 0 auto;
-    width: 50%;
-  }
-`;
-
 export const NavigationContainer = styled.nav<HeaderContainerProps>`
   width: 50%;
   display: flex;

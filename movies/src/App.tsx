@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { ThemeContext } from "./components/themeContext";
@@ -10,12 +10,32 @@ import { SignInComponent } from "./components/ui/auth/SignIn";
 import { SignUpComponent } from "./components/ui/auth/SignUp";
 import { Main } from "./components/ui/main/main";
 import { Footer } from "./components/ui/footer/footer";
+import { MovieList } from "./components/ui/movieList/movieList";
+import { SearchBox } from "./components/ui/searchInput/searchBox";
 
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
   const changeTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
+
+  const [movies, setMovies] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+
+  const getMovieRequest = async (searchValue: string) => {
+    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=ebf59a92`;
+
+    const response = await fetch(url);
+    const responseJson = await response.json();
+
+    if (responseJson.Search) {
+      setMovies(responseJson.Search);
+    }
+  };
+
+  useEffect(() => {
+    getMovieRequest(searchValue);
+  }, [searchValue]);
 
   return (
     <ThemeContext.Provider
@@ -36,6 +56,11 @@ function App() {
             <Route path="/posts/:id" element={<SinglePost/>}/>
             <Route path="*" element={<NotFoundComponent/>}/> */}
               </Routes>
+              <SearchBox
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+              />
+              <MovieList movies={movies} />
               <Main />
               <Footer />
             </div>

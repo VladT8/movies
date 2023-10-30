@@ -34,7 +34,7 @@ export const SingleMoviePage = () => {
   console.log("PARAMS", params);
 
   const [currentMovie, setCurrentMovie] = useState<any>();
-  
+
   useEffect(() => {
     fetch(`https://www.omdbapi.com/?i=${params.imdbID}&apikey=ebf59a92`)
       .then((response) => response.json())

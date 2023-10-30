@@ -21,9 +21,12 @@ export const Main: FC<MainProps> = ({ movies }) => {
       myTheme={themeContextData.currentTheme}
     >
       <MovieList movies={movies} favoriteComponent={AddFavorite} />
-      {/* <MovieCard title="The Departed" />
       <MovieCard title="The Departed" />
-      <MovieCard title="The Departed" /> */}
+      <MovieCard title="The Shawshank Redemption" />
+      <MovieCard title="Schindler's List" />
+      <MovieCard title="Interstellar" />
+      <MovieCard title="Fight Club" />
+      <MovieCard title="Pulp Fiction" />
     </MainContainer>
   );
 };

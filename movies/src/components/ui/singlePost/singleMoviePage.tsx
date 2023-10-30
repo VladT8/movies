@@ -28,7 +28,7 @@ interface SingleMoviePageProps {
   imdbID?: string;
 }
 
-export const SingleMoviePage = () => {
+export const SingleMoviePage: FC<SingleMoviePageProps> = () => {
   const themeContextData = useContext(ThemeContext);
   const params = useParams();
   console.log("PARAMS", params);
@@ -47,21 +47,21 @@ export const SingleMoviePage = () => {
       myTheme={themeContextData.currentTheme}
     >
       <SingleMoviePageStylePoster>
-        <img src={currentMovie.Poster} alt={currentMovie.Title} />
+        <img src={currentMovie?.Poster} alt={currentMovie?.Title} />
       </SingleMoviePageStylePoster>
       <div>
         <SingleMoviePageStyleTitle>
           {currentMovie?.Title}
         </SingleMoviePageStyleTitle>
-        <SinglePostinfo>{currentMovie.Plot}</SinglePostinfo>
+        <SinglePostinfo>{currentMovie?.Plot}</SinglePostinfo>
         <SinglePostDirector>
-          Director: {currentMovie.Director}
+          Director: {currentMovie?.Director}
         </SinglePostDirector>
-        <SinglePostActors>Actors: {currentMovie.Actors}</SinglePostActors>
-        <SinglePostCountry>Country: {currentMovie.Country}</SinglePostCountry>
-        <SinglePostAwards>Awards: {currentMovie.Awards}</SinglePostAwards>
+        <SinglePostActors>Actors: {currentMovie?.Actors}</SinglePostActors>
+        <SinglePostCountry>Country: {currentMovie?.Country}</SinglePostCountry>
+        <SinglePostAwards>Awards: {currentMovie?.Awards}</SinglePostAwards>
         <SinglePostimdbRating>
-          IMDb Rating: {currentMovie.imdbRating}
+          IMDb Rating: {currentMovie?.imdbRating}
         </SinglePostimdbRating>
       </div>
     </SingleMoviePageStyle>

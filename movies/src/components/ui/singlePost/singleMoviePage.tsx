@@ -17,14 +17,14 @@ import { AddFavorite } from "../../shared/favoriteIcon/AddFavorite";
 import { useParams } from "react-router-dom";
 
 interface SingleMoviePageProps {
-  title?: string;
-  plot?: string;
-  director?: string;
-  actors?: string;
-  country?: string;
-  awards?: string;
+  Title?: string;
+  Plot?: string;
+  Director?: string;
+  Actors?: string;
+  Country?: string;
+  Awards?: string;
   imdbRating?: string;
-  posterUrl?: string;
+  Poster?: string;
   imdbID?: string;
 }
 
@@ -34,12 +34,11 @@ export const SingleMoviePage = () => {
   console.log("PARAMS", params);
 
   const [currentMovie, setCurrentMovie] = useState<any>();
+  
   useEffect(() => {
     fetch(`https://www.omdbapi.com/?i=${params.imdbID}&apikey=ebf59a92`)
       .then((response) => response.json())
-      .then((json) => {
-        setCurrentMovie(json);
-      });
+      .then((json) => setCurrentMovie(json));
   }, []);
   return (
     <SingleMoviePageStyle
@@ -48,19 +47,19 @@ export const SingleMoviePage = () => {
       myTheme={themeContextData.currentTheme}
     >
       <SingleMoviePageStylePoster>
-        <img src={currentMovie.posterUrl} alt={currentMovie.title} />
+        <img src={currentMovie.Poster} alt={currentMovie.Title} />
       </SingleMoviePageStylePoster>
       <div>
         <SingleMoviePageStyleTitle>
-          {currentMovie.title}
+          {currentMovie?.Title}
         </SingleMoviePageStyleTitle>
-        <SinglePostinfo>{currentMovie.plot}</SinglePostinfo>
+        <SinglePostinfo>{currentMovie.Plot}</SinglePostinfo>
         <SinglePostDirector>
-          Director: {currentMovie.director}
+          Director: {currentMovie.Director}
         </SinglePostDirector>
-        <SinglePostActors>Actors: {currentMovie.actors}</SinglePostActors>
-        <SinglePostCountry>Country: {currentMovie.country}</SinglePostCountry>
-        <SinglePostAwards>Awards: {currentMovie.awards}</SinglePostAwards>
+        <SinglePostActors>Actors: {currentMovie.Actors}</SinglePostActors>
+        <SinglePostCountry>Country: {currentMovie.Country}</SinglePostCountry>
+        <SinglePostAwards>Awards: {currentMovie.Awards}</SinglePostAwards>
         <SinglePostimdbRating>
           IMDb Rating: {currentMovie.imdbRating}
         </SinglePostimdbRating>

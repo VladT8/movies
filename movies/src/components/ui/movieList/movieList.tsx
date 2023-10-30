@@ -13,6 +13,7 @@ import {
   Poster,
   CardContainer,
 } from "../movieCard/movieCard.styles";
+import { Link } from "react-router-dom";
 
 export interface MovieData {
   Title: string;
@@ -20,6 +21,7 @@ export interface MovieData {
   Poster: string;
   Director: string;
   Genre: string;
+  imdbID?: string;
   favoriteComponent?: () => Element;
 }
 interface MovieListProps {
@@ -32,22 +34,23 @@ export const MovieList: FC<MovieListProps> = ({
   favoriteComponent,
 }) => {
   const themeContextData = useContext(ThemeContext);
-//   const FavoriteComponent = favoriteComponent;
+  //   const FavoriteComponent = favoriteComponent;
   return (
     <MovieListContainer>
       {movies.map((movie, index, handleFavoritesClick) => (
-        <CardContainer
-          key={index}
-          theme={themeContextData.stylesForTheme}
-          myTheme={themeContextData.currentTheme}
-          onClick={() => handleFavoritesClick}
-        >
-          <>
-            <Poster src={movie.Poster} alt={`${movie.Title}`} />
-            <Title>{movie.Title}</Title>
-            {/* <FavoriteComponent /> */}
-          </>
-        </CardContainer>
+        <Link key={index} to={`/movie/${movie.imdbID}`}>
+          <CardContainer
+            theme={themeContextData.stylesForTheme}
+            myTheme={themeContextData.currentTheme}
+            onClick={() => handleFavoritesClick}
+          >
+            <>
+              <Poster src={movie.Poster} alt={`${movie.Title}`} />
+              <Title>{movie.Title}</Title>
+              {/* <FavoriteComponent /> */}
+            </>
+          </CardContainer>
+        </Link>
       ))}
     </MovieListContainer>
   );

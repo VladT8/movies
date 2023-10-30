@@ -14,6 +14,7 @@ import { MovieList } from "./components/ui/movieList/movieList";
 import { SearchBox } from "./components/ui/searchInput/searchBox";
 import { AddFavorite } from "./components/shared/favoriteIcon/AddFavorite";
 import { NotFoundComponent } from "./components/ui/empty/empty";
+import { SingleMoviePage } from "./components/ui/singlePost/singleMoviePage";
 
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
@@ -63,12 +64,11 @@ function App() {
                 path="/login"
                 element={<SignInComponent formName={"SignIn"} />}
               />
-              {/* <Route path="/posts" element={<Posts />} /> */}
-              {/* <Route path="/posts/:id" element={<SinglePost />} /> */}
+              <Route path="/movie/:imdbID" element={<SingleMoviePage />} />
               <Route path="*" element={<NotFoundComponent />} />
             </Routes>
 
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </Router>

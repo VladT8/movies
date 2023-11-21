@@ -31,7 +31,7 @@ interface SingleMoviePageProps {
 export const SingleMoviePage: FC<SingleMoviePageProps> = () => {
   const themeContextData = useContext(ThemeContext);
   const params = useParams();
-  console.log("PARAMS", params);
+  // console.log("PARAMS", params);
 
   const [currentMovie, setCurrentMovie] = useState<any>();
 

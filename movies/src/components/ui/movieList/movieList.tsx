@@ -27,27 +27,34 @@ export interface MovieData {
 interface MovieListProps {
   movies: MovieData[];
   favoriteComponent: FC<AddFavoriteProps>;
+  // handleFavoritesClick?: ((movie: MovieData) => void) | undefined;
+  handleFavoritesClick?: any;
 }
 
 export const MovieList: FC<MovieListProps> = ({
   movies,
+  handleFavoritesClick,
   favoriteComponent,
 }) => {
   const themeContextData = useContext(ThemeContext);
-  //   const FavoriteComponent = favoriteComponent;
+  const FavoriteComponent = favoriteComponent;
   return (
     <MovieListContainer>
-      {movies.map((movie, index, handleFavoritesClick) => (
-        <Link key={index} to={`/movie/${movie.imdbID}`}>
+      {movies.map((movie, imdbID) => (
+        <Link key={imdbID} to={`/movie/${movie.imdbID}`}>
           <CardContainer
             theme={themeContextData.stylesForTheme}
             myTheme={themeContextData.currentTheme}
-            onClick={() => handleFavoritesClick}
           >
             <>
               <Poster src={movie.Poster} alt={`${movie.Title}`} />
               <Title>{movie.Title}</Title>
-              {/* <FavoriteComponent /> */}
+              <div
+                className="favor__wrapper"
+                onClick={() => handleFavoritesClick(movie)}
+              >
+                <FavoriteComponent />
+              </div>
             </>
           </CardContainer>
         </Link>

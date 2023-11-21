@@ -53,7 +53,10 @@ export const Burger = () => {
       <NavigationContainer className="header__menu" isOpen={isOpen}>
         <NavUl className="header__list">
           <NavLi>
-            <Link to="/">TO MAIN</Link>
+            <Link to="/">MAIN</Link>
+          </NavLi>
+          <NavLi>
+            <Link to="/">Favorites</Link>
           </NavLi>
           <NavLi>
             <Link to="/register">Register</Link>

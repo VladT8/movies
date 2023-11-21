@@ -42,7 +42,7 @@ export const NavUl = styled.ul<HeaderContainerProps>`
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #0d2538;
+    background-color: #B8860B;
     /* background-color: ${({ theme }) => theme?.background}; */
     position: fixed;
     top: 0;

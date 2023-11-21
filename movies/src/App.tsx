@@ -10,11 +10,12 @@ import { SignInComponent } from "./components/ui/auth/SignIn";
 import { SignUpComponent } from "./components/ui/auth/SignUp";
 import { Main } from "./components/ui/main/main";
 import { Footer } from "./components/ui/footer/footer";
-import { MovieList } from "./components/ui/movieList/movieList";
+import { MovieData, MovieList } from "./components/ui/movieList/movieList";
 import { SearchBox } from "./components/ui/searchInput/searchBox";
 import { AddFavorite } from "./components/shared/favoriteIcon/AddFavorite";
 import { NotFoundComponent } from "./components/ui/empty/empty";
 import { SingleMoviePage } from "./components/ui/singlePost/singleMoviePage";
+import { FavoritesPage } from "./components/ui/favoritesPage/favoritesPage";
 
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
@@ -34,6 +35,12 @@ function App() {
     if (responseJson.Search) {
       setMovies(responseJson.Search);
     }
+  };
+  const [favorites, setFavorites] = useState([]);
+
+  const addFavoriteMovie = (movie: MovieData) => {
+    const newFavoriteList: any = [...favorites, movie];
+    setFavorites(newFavoriteList);
   };
 
   useEffect(() => {
@@ -56,6 +63,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Main movies={movies} />} />
               <Route path="/main" element={<Main movies={movies} />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
               <Route
                 path="/register"
                 element={<SignUpComponent formName={"SignUp"} />}
@@ -67,6 +75,11 @@ function App() {
               <Route path="/movie/:imdbID" element={<SingleMoviePage />} />
               <Route path="*" element={<NotFoundComponent />} />
             </Routes>
+            <MovieList
+              movies={movies}
+              handleFavoritesClick={addFavoriteMovie}
+              favoriteComponent={AddFavorite}
+            />
 
             {/* <Footer /> */}
           </div>

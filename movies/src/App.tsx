@@ -16,7 +16,8 @@ import { AddFavorite } from "./components/shared/favoriteIcon/AddFavorite";
 import { NotFoundComponent } from "./components/ui/empty/empty";
 import { SingleMoviePage } from "./components/ui/singlePost/singleMoviePage";
 import { FavoritesPage } from "./components/ui/favoritesPage/favoritesPage";
-
+import { RemoveFavorites } from "./components/shared/removeFavorites/removeFavorites";
+import { json } from "stream/consumers";
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
   const changeTheme = () => {
@@ -36,16 +37,37 @@ function App() {
       setMovies(responseJson.Search);
     }
   };
-  const [favorites, setFavorites] = useState([]);
+
+  const saveToLocalStorage = (items: any) => {
+    localStorage.setItem("react-movie-app-favorites", JSON.stringify(items));
+  };
+
+  const [favorites, setFavorites] = useState<MovieData[]>([]);
 
   const addFavoriteMovie = (movie: MovieData) => {
     const newFavoriteList: any = [...favorites, movie];
     setFavorites(newFavoriteList);
+    saveToLocalStorage(newFavoriteList);
+  };
+
+  const removeFavoriteMovie = (movie: MovieData) => {
+    const newFavoriteList: any = favorites.filter(
+      (favorites) => favorites.imdbID !== movie.imdbID
+    );
+    setFavorites(newFavoriteList);
+    saveToLocalStorage(newFavoriteList);
   };
 
   useEffect(() => {
     getMovieRequest(searchValue);
   }, [searchValue]);
+
+  useEffect(() => {
+    const movieFavorites = localStorage.getItem("react-movie-app-favorites");
+    if (movieFavorites !== null) {
+      setFavorites(JSON.parse(movieFavorites));
+    }
+  }, []);
 
   return (
     <ThemeContext.Provider
@@ -79,6 +101,11 @@ function App() {
               movies={movies}
               handleFavoritesClick={addFavoriteMovie}
               favoriteComponent={AddFavorite}
+            />
+            <MovieList
+              movies={favorites}
+              handleFavoritesClick={removeFavoriteMovie}
+              favoriteComponent={RemoveFavorites}
             />
 
             {/* <Footer /> */}

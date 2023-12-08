@@ -85,7 +85,16 @@ function App() {
             <Routes>
               <Route path="/" element={<Main movies={movies} />} />
               <Route path="/main" element={<Main movies={movies} />} />
-              <Route path="/favorites" element={<FavoritesPage />} />
+              <Route
+                path="/favorites"
+                element={
+                  <FavoritesPage
+                    favorites={favorites}
+                    addFavoriteMovie={addFavoriteMovie}
+                    removeFavoriteMovie={removeFavoriteMovie}
+                  />
+                }
+              />
               <Route
                 path="/register"
                 element={<SignUpComponent formName={"SignUp"} />}
@@ -101,11 +110,6 @@ function App() {
               movies={movies}
               handleFavoritesClick={addFavoriteMovie}
               favoriteComponent={AddFavorite}
-            />
-            <MovieList
-              movies={favorites}
-              handleFavoritesClick={removeFavoriteMovie}
-              favoriteComponent={RemoveFavorites}
             />
 
             {/* <Footer /> */}

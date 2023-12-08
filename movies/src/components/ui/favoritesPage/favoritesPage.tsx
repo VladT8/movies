@@ -2,42 +2,34 @@ import React, { FC, useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../themeContext";
 import { SingleMoviePage } from "../singlePost/singleMoviePage";
 import { FavoritesPageContainer } from "./favoritesPage.styles";
-import { MovieList } from "../movieList/movieList";
+import { MovieData, MovieList } from "../movieList/movieList";
+import { AddFavorite } from "../../shared/favoriteIcon/AddFavorite";
+import { RemoveFavorites } from "../../shared/removeFavorites/removeFavorites";
 
-// interface SingleMoviePageProps {
-//   Title?: string;
-//   Plot?: string;
-//   Director?: string;
-//   Actors?: string;
-//   Country?: string;
-//   Awards?: string;
-//   imdbRating?: string;
-//   Poster?: string;
-//   imdbID?: string;
-// }
 
-export const FavoritesPage = () => {
+interface FavoritesPageProps {
+  favorites: MovieData[];
+  addFavoriteMovie: (movie: MovieData) => void;
+  removeFavoriteMovie: (movie: MovieData) => void;
+}
+
+export const FavoritesPage: FC<FavoritesPageProps> = ({
+  favorites,
+  removeFavoriteMovie,
+}) => {
   const themeContextData = useContext(ThemeContext);
-  //   const params = useParams();
 
-  //   const [currentMovie, setCurrentMovie] = useState<any>();
-
-  //   useEffect(() => {
-  //     fetch(`https://www.omdbapi.com/?i=${params.imdbID}&apikey=ebf59a92`)
-  //       .then((response) => response.json())
-  //       .then((json) => setCurrentMovie(json));
-  //   }, []);
   return (
     <FavoritesPageContainer
       className="single-post"
       theme={themeContextData.stylesForTheme}
       myTheme={themeContextData.currentTheme}
     >
-      {/* <MovieList
+      <MovieList
         movies={favorites}
-        handleFavoritesClick={addFavoriteMovie}
-        favoriteComponent={AddFavorite}
-      /> */}
+        handleFavoritesClick={removeFavoriteMovie}
+        favoriteComponent={RemoveFavorites}
+      />
     </FavoritesPageContainer>
   );
 };

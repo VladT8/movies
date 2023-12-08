@@ -56,7 +56,7 @@ export const Burger = () => {
             <Link to="/">MAIN</Link>
           </NavLi>
           <NavLi>
-            <Link to="/">Favorites</Link>
+            <Link to="/favorites">Favorites</Link>
           </NavLi>
           <NavLi>
             <Link to="/register">Register</Link>

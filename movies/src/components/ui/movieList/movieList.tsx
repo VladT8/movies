@@ -46,16 +46,14 @@ export const MovieList: FC<MovieListProps> = ({
             theme={themeContextData.stylesForTheme}
             myTheme={themeContextData.currentTheme}
           >
-            <>
-              <Poster src={movie.Poster} alt={`${movie.Title}`} />
-              <Title>{movie.Title}</Title>
-              <div
-                className="favor__wrapper"
-                onClick={() => handleFavoritesClick(movie)}
-              >
-                <FavoriteComponent />
-              </div>
-            </>
+            <Poster src={movie.Poster} alt={`${movie.Title}`} />
+            <Title>{movie.Title}</Title>
+            <div
+              className="favor__wrapper"
+              onClick={() => handleFavoritesClick(movie)}
+            >
+              <FavoriteComponent />
+            </div>
           </CardContainer>
         </Link>
       ))}

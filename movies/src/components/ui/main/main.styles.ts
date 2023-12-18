@@ -6,7 +6,7 @@ interface MainContainerProps {
   myTheme?: ThemeType;
 }
 
-export const MainContainer = styled.main<MainContainerProps>`
+export const MainContainer = styled.section<MainContainerProps>`
   width: 100%;
   display: flex;
   justify-content: space-around;

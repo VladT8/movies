@@ -10,6 +10,8 @@ export const Footer: FC = () => {
       className="footer"
       theme={themeContextData.stylesForTheme}
       myTheme={themeContextData.currentTheme}
-    ></FooterContainer>
+    >
+      <h4>FOOTER</h4>
+    </FooterContainer>
   );
 };

@@ -64,12 +64,6 @@ export const Burger = () => {
           <NavLi>
             <Link to="/login">Login</Link>
           </NavLi>
-          {/* <NavLi>
-            <Link to="/">About</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="/">Contacts</Link>
-          </NavLi> */}
         </NavUl>
       </NavigationContainer>
     </>

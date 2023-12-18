@@ -70,10 +70,10 @@ function App() {
   }, []);
 
   return (
-    <ThemeContext.Provider
-      value={{ currentTheme: theme, stylesForTheme: Themes[theme] }}
-    >
-      <Router>
+    <Router>
+      <ThemeContext.Provider
+        value={{ currentTheme: theme, stylesForTheme: Themes[theme] }}
+      >
         <div className="App">
           <div className="container">
             <Header
@@ -82,41 +82,42 @@ function App() {
               searchValue={searchValue}
               setSearchValue={setSearchValue}
             />
-            <Routes>
-              <Route path="/" element={<Main movies={movies} />} />
-              <Route path="/main" element={<Main movies={movies} />} />
-              <Route
-                path="/favorites"
-                element={
-                  <FavoritesPage
-                    favorites={favorites}
-                    addFavoriteMovie={addFavoriteMovie}
-                    removeFavoriteMovie={removeFavoriteMovie}
-                  />
-                }
+            <main className="main">
+              <Routes>
+                <Route path="/" element={<Main movies={movies} />} />
+                <Route path="/main" element={<Main movies={movies} />} />
+                <Route
+                  path="/favorites"
+                  element={
+                    <FavoritesPage
+                      favorites={favorites}
+                      addFavoriteMovie={addFavoriteMovie}
+                      removeFavoriteMovie={removeFavoriteMovie}
+                    />
+                  }
+                />
+                <Route
+                  path="/register"
+                  element={<SignUpComponent formName={"SignUp"} />}
+                />
+                <Route
+                  path="/login"
+                  element={<SignInComponent formName={"SignIn"} />}
+                />
+                <Route path="/movie/:imdbID" element={<SingleMoviePage />} />
+                <Route path="*" element={<NotFoundComponent />} />
+              </Routes>
+              <MovieList
+                movies={movies}
+                handleFavoritesClick={addFavoriteMovie}
+                favoriteComponent={AddFavorite}
               />
-              <Route
-                path="/register"
-                element={<SignUpComponent formName={"SignUp"} />}
-              />
-              <Route
-                path="/login"
-                element={<SignInComponent formName={"SignIn"} />}
-              />
-              <Route path="/movie/:imdbID" element={<SingleMoviePage />} />
-              <Route path="*" element={<NotFoundComponent />} />
-            </Routes>
-            <MovieList
-              movies={movies}
-              handleFavoritesClick={addFavoriteMovie}
-              favoriteComponent={AddFavorite}
-            />
-
-            {/* <Footer /> */}
+            </main>
+            <Footer />
           </div>
         </div>
-      </Router>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </Router>
   );
 }
 

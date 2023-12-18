@@ -8,8 +8,14 @@ interface FooterContainerProps {
 
 export const FooterContainer = styled.footer<FooterContainerProps>`
   width: 100%;
-  height: 150px;
-  border: 3px solid black;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
   background-color: ${({ theme }) => theme?.background};
   color: ${({ theme }) => theme?.text};
+  h4 {
+    font-size: 50px;
+  }
 `;

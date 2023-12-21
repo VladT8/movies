@@ -1,16 +1,12 @@
-import React, { FC, useContext } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React from "react";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import {
   ButtonWrapper,
-  CheckboxLabel,
   FormContainer,
-  FormError,
   FormInputs,
   FormTitle,
 } from "./form.styles";
-import { ButtonComponent } from "../button/button";
-import { ThemeContext } from "../../themeContext";
 
 interface formikProps {
   firstName: string;

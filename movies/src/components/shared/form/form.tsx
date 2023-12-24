@@ -17,9 +17,10 @@ interface formikProps {
   terms: boolean;
 }
 
-interface formikComponentProps {
+export interface formikComponentProps {
   formName: string;
   children?: any;
+  onSubmit?: any;
 }
 
 const regularExpressionPassword =
@@ -28,7 +29,12 @@ const regularExpressionPassword =
 export const FormComponent: React.FC<formikComponentProps> = ({
   formName,
   children,
+  onSubmit,
 }) => {
+  const handleSubmit = (values: any, formikBag: any) => {
+    onSubmit();
+    formikBag.setSubmitting(false);
+  };
   return (
     <Formik<formikProps>
       initialValues={{
@@ -63,15 +69,15 @@ export const FormComponent: React.FC<formikComponentProps> = ({
           .required("Обязательно согласие")
           .oneOf([true], "Обязательно согласие"),
       })}
-      onSubmit={(values) => alert(JSON.stringify(values, null, 2))}
+      onSubmit={handleSubmit}
     >
       <FormContainer>
         <FormTitle>{formName}</FormTitle>
         <Form action="" className="form">
           <FormInputs>{children}</FormInputs>
-          <ButtonWrapper>
+          
             <button type="submit">Submit</button>
-          </ButtonWrapper>
+          
         </Form>
       </FormContainer>
     </Formik>

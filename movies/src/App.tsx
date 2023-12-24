@@ -8,6 +8,7 @@ import { MovieCard } from "./components/ui/movieCard/movieCard";
 import { FormComponent } from "./components/shared/form/form";
 import { SignInComponent } from "./components/ui/auth/SignIn";
 import { SignUpComponent } from "./components/ui/auth/SignUp";
+import { AuthDetails } from "./components/ui/auth/AuthDetails";
 import { Main } from "./components/ui/main/main";
 import { Footer } from "./components/ui/footer/footer";
 import { MovieData, MovieList } from "./components/ui/movieList/movieList";
@@ -82,6 +83,7 @@ function App() {
               searchValue={searchValue}
               setSearchValue={setSearchValue}
             />
+            <AuthDetails />
             <main className="main">
               <Routes>
                 <Route path="/" element={<Main movies={movies} />} />
@@ -96,14 +98,8 @@ function App() {
                     />
                   }
                 />
-                <Route
-                  path="/register"
-                  element={<SignUpComponent formName={"SignUp"} />}
-                />
-                <Route
-                  path="/login"
-                  element={<SignInComponent formName={"SignIn"} />}
-                />
+                <Route path="/register" element={<SignUpComponent />} />
+                <Route path="/login" element={<SignInComponent />} />
                 <Route path="/movie/:imdbID" element={<SingleMoviePage />} />
                 <Route path="*" element={<NotFoundComponent />} />
               </Routes>

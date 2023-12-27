@@ -83,7 +83,7 @@ function App() {
               searchValue={searchValue}
               setSearchValue={setSearchValue}
             />
-            <AuthDetails />
+            
             <main className="main">
               <Routes>
                 <Route path="/" element={<Main movies={movies} />} />

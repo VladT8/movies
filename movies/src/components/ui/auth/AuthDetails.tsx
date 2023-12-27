@@ -28,15 +28,12 @@ export const AuthDetails = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div>
+    <>
       {authUser ? (
-        <>
-          <p>Signet In</p>
-          <button onClick={userSignOut}>Sign Out</button>
-        </>
+        <button onClick={userSignOut}>Logout</button>
       ) : (
-        <p>Signet Out</p>
+        <p>U are not logged</p>
       )}
-    </div>
+    </>
   );
 };

@@ -4,7 +4,8 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { ButtonThemeToggler } from "../../themeToggle/themeButton";
-
+import { Link } from "react-router-dom";
+import { AuthDetails } from "../../auth/AuthDetails";
 interface BasicMenuContainerProps {
   changeTheme: () => void;
   isActive: boolean;
@@ -43,13 +44,18 @@ export const BasicMenu: FC<BasicMenuContainerProps> = ({
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to={`/register`}>Registration</Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to={`/login`}>Login</Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <AuthDetails />
+        </MenuItem>
         <MenuItem onClick={handleClose}>
           <ButtonThemeToggler onClick={changeTheme} isActive={isActive} />
         </MenuItem>
-        {/* <ButtonThemeToggler onClick={changeTheme} isActive={isActive} /> */}
       </Menu>
     </div>
   );

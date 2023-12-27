@@ -8,7 +8,7 @@ import {
   AddFavoriteProps,
 } from "../../shared/favoriteIcon/AddFavorite";
 import { Router, Routes, Route } from "react-router-dom";
-import { FavoritesPage } from "../favoritesPage/favoritesPage";
+import { FavoritesPage } from "../../pages/favoritesPage/favoritesPage";
 import { SignUpComponent } from "../auth/SignUp";
 import { SignInComponent } from "../auth/SignIn";
 import { NotFoundComponent } from "../empty/empty";

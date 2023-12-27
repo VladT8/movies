@@ -16,9 +16,10 @@ import { SearchBox } from "./components/ui/searchInput/searchBox";
 import { AddFavorite } from "./components/shared/favoriteIcon/AddFavorite";
 import { NotFoundComponent } from "./components/ui/empty/empty";
 import { SingleMoviePage } from "./components/ui/singlePost/singleMoviePage";
-import { FavoritesPage } from "./components/ui/favoritesPage/favoritesPage";
+import { FavoritesPage } from "./components/pages/favoritesPage/favoritesPage";
 import { RemoveFavorites } from "./components/shared/removeFavorites/removeFavorites";
 import { json } from "stream/consumers";
+import { AboutPage } from "./components/pages/about/about";
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
   const changeTheme = () => {
@@ -83,7 +84,7 @@ function App() {
               searchValue={searchValue}
               setSearchValue={setSearchValue}
             />
-            
+
             <main className="main">
               <Routes>
                 <Route path="/" element={<Main movies={movies} />} />
@@ -98,6 +99,7 @@ function App() {
                     />
                   }
                 />
+                <Route path="/about" element={<AboutPage />} />
                 <Route path="/register" element={<SignUpComponent />} />
                 <Route path="/login" element={<SignInComponent />} />
                 <Route path="/movie/:imdbID" element={<SingleMoviePage />} />

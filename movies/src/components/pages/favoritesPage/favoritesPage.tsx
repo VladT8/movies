@@ -1,11 +1,10 @@
 import React, { FC, useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../themeContext";
-import { SingleMoviePage } from "../singlePost/singleMoviePage";
+import { SingleMoviePage } from "../../ui/singlePost/singleMoviePage";
 import { FavoritesPageContainer } from "./favoritesPage.styles";
-import { MovieData, MovieList } from "../movieList/movieList";
+import { MovieData, MovieList } from "../../ui/movieList/movieList";
 import { AddFavorite } from "../../shared/favoriteIcon/AddFavorite";
 import { RemoveFavorites } from "../../shared/removeFavorites/removeFavorites";
-
 
 interface FavoritesPageProps {
   favorites: MovieData[];

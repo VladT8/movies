@@ -3,12 +3,10 @@ import { FC, useContext } from "react";
 import { HeaderContainer } from "./header.styles";
 import { ThemeContext } from "../../themeContext";
 import { Burger } from "./Burger";
-import { ButtonThemeToggler } from "../themeToggle/themeButton";
 import { SearchBox } from "../searchInput/searchBox";
+import { BasicMenu } from "./menu/header-menu";
 
 interface HeaderContainerProps {
-  nav?: string;
-  children?: any;
   changeTheme: () => void;
   isActive: boolean;
   searchValue?: string;
@@ -16,7 +14,6 @@ interface HeaderContainerProps {
 }
 
 export const Header: FC<HeaderContainerProps> = ({
-  nav,
   changeTheme,
   isActive,
   searchValue,
@@ -32,8 +29,7 @@ export const Header: FC<HeaderContainerProps> = ({
     >
       <Burger />
       <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
-
-      <ButtonThemeToggler onClick={changeTheme} isActive={isActive} />
+      <BasicMenu changeTheme={changeTheme} isActive={isActive} />
     </HeaderContainer>
   );
 };

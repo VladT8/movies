@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import firebase from "firebase/app";
 import "firebase/auth";
-
+import "./sign.scss";
 export const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
   useEffect(() => {
@@ -30,18 +32,21 @@ export const AuthDetails = () => {
   return (
     <>
       {authUser ? (
-        <button onClick={userSignOut}>Logout</button>
+        <div>
+          <MenuItem>
+            <Link to="/profile">Profile</Link>
+          </MenuItem>
+          <MenuItem>
+            <button className="button-logout" onClick={userSignOut}>
+              Logout
+            </button>
+          </MenuItem>
+        </div>
       ) : (
-        <p>U are not logged</p>
+        <MenuItem>
+          <Link to="/login">Login</Link>
+        </MenuItem>
       )}
     </>
   );
 };
-
-{/* <MenuItem onClick={handleClose}>
-  {authUser ? (
-    <Link to="/profile">Profile</Link>
-  ) : (
-    <Link to="/register">Registration</Link>
-  )}
-</MenuItem>; */}

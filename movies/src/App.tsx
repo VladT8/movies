@@ -20,6 +20,7 @@ import { FavoritesPage } from "./components/pages/favoritesPage/favoritesPage";
 import { RemoveFavorites } from "./components/shared/removeFavorites/removeFavorites";
 import { json } from "stream/consumers";
 import { AboutPage } from "./components/pages/about/about";
+import { ProfilePage } from "./components/pages/profile/profile";
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
   const changeTheme = () => {
@@ -102,6 +103,7 @@ function App() {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/register" element={<SignUpComponent />} />
                 <Route path="/login" element={<SignInComponent />} />
+                <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/movie/:imdbID" element={<SingleMoviePage />} />
                 <Route path="*" element={<NotFoundComponent />} />
               </Routes>

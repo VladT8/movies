@@ -72,3 +72,16 @@
     }
   }
 }
+.button-logout {
+  display: block;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  text-align: left;
+  text-decoration: none;
+  color: #000;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}

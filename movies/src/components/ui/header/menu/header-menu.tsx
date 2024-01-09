@@ -45,12 +45,9 @@ export const BasicMenu: FC<BasicMenuContainerProps> = ({
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link to="/login">Login</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
           <AuthDetails />
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem>
           <ButtonThemeToggler onClick={changeTheme} isActive={isActive} />
         </MenuItem>
       </Menu>

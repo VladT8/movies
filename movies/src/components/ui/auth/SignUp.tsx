@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FormComponent, formikComponentProps } from "../../shared/form/form";
 import { Field, ErrorMessage } from "formik";
 import { CheckboxLabel, FormError } from "../../shared/form/form.styles";
+import { Link } from "react-router-dom";
 import "./sign.scss";
 import { auth } from "../../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -69,6 +70,9 @@ export const SignUpComponent = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Sign Up</button>
+        <div className="form__link">
+          have an account? <Link to="/login">Login</Link>
+        </div>
       </form>
     </div>
   );

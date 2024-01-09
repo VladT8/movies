@@ -45,10 +45,7 @@ export const BasicMenu: FC<BasicMenuContainerProps> = ({
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link to={`/register`}>Registration</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to={`/login`}>Login</Link>
+          <Link to="/login">Login</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <AuthDetails />

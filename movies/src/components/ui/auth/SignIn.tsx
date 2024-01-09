@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FormComponent, formikComponentProps } from "../../shared/form/form";
 import { Field, ErrorMessage } from "formik";
+import { Link } from "react-router-dom";
 import {
   ButtonWrapper,
   CheckboxLabel,
@@ -69,6 +70,9 @@ export const SignInComponent = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Log In</button>
+        <div className="form__link">
+          don't have account? <Link to="/register">Registration</Link>
+        </div>
       </form>
     </div>
   );

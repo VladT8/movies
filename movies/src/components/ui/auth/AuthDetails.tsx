@@ -37,3 +37,11 @@ export const AuthDetails = () => {
     </>
   );
 };
+
+{/* <MenuItem onClick={handleClose}>
+  {authUser ? (
+    <Link to="/profile">Profile</Link>
+  ) : (
+    <Link to="/register">Registration</Link>
+  )}
+</MenuItem>; */}

@@ -26,19 +26,9 @@ export const MovieListContainer = styled.section<movieListProps>`
       transition: all 0.3s ease-in-out;
     }
     .favor__wrapper {
-      /* position: absolute; */
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 10;
       width: 100%;
-      transition: 0.5s ease;
-      opacity: 0;
-      /* bottom: 0; */
       text-align: center;
       width: 100%;
-      height: 30px;
-      &:hover {
-        opacity: 1;
-      }
     }
   }
 `;

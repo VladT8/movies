@@ -10,7 +10,7 @@ import { ThemeContext } from "../../themeContext";
 import {
   AddFavorite,
   AddFavoriteProps,
-} from "../../shared/favoriteIcon/AddFavorite";
+} from "../../shared/addFavorites/AddFavorite";
 
 interface MovieCardProps {
   title: string;

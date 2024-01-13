@@ -3,7 +3,7 @@ import { ThemeContext } from "../../themeContext";
 import { SingleMoviePage } from "../../ui/singlePost/singleMoviePage";
 import { FavoritesPageContainer } from "./favoritesPage.styles";
 import { MovieData, MovieList } from "../../ui/movieList/movieList";
-import { AddFavorite } from "../../shared/favoriteIcon/AddFavorite";
+import { AddFavorite } from "../../shared/addFavorites/AddFavorite";
 import { RemoveFavorites } from "../../shared/removeFavorites/removeFavorites";
 
 interface FavoritesPageProps {

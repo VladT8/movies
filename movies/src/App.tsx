@@ -13,7 +13,7 @@ import { Main } from "./components/ui/main/main";
 import { Footer } from "./components/ui/footer/footer";
 import { MovieData, MovieList } from "./components/ui/movieList/movieList";
 import { SearchBox } from "./components/ui/searchInput/searchBox";
-import { AddFavorite } from "./components/shared/favoriteIcon/AddFavorite";
+import { AddFavorite } from "./components/shared/addFavorites/AddFavorite";
 import { NotFoundComponent } from "./components/ui/empty/empty";
 import { SingleMoviePage } from "./components/ui/singlePost/singleMoviePage";
 import { FavoritesPage } from "./components/pages/favoritesPage/favoritesPage";

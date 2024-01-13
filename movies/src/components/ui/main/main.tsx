@@ -6,7 +6,7 @@ import { MovieData, MovieList } from "../movieList/movieList";
 import {
   AddFavorite,
   AddFavoriteProps,
-} from "../../shared/favoriteIcon/AddFavorite";
+} from "../../shared/addFavorites/AddFavorite";
 import { Router, Routes, Route } from "react-router-dom";
 import { FavoritesPage } from "../../pages/favoritesPage/favoritesPage";
 import { SignUpComponent } from "../auth/SignUp";

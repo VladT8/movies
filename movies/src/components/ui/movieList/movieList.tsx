@@ -4,7 +4,7 @@ import { MovieListContainer } from "./movieList.styles";
 import {
   AddFavorite,
   AddFavoriteProps,
-} from "../../shared/favoriteIcon/AddFavorite";
+} from "../../shared/addFavorites/AddFavorite";
 import { MovieCard } from "../movieCard/movieCard";
 import {
   DirectorInfo,
@@ -22,7 +22,7 @@ export interface MovieData {
   Director: string;
   Genre: string;
   imdbID?: string;
-  favoriteComponent?: () => Element;
+  // favoriteComponent?: () => Element;
 }
 interface MovieListProps {
   movies: MovieData[];
@@ -48,6 +48,7 @@ export const MovieList: FC<MovieListProps> = ({
           >
             <Poster src={movie.Poster} alt={`${movie.Title}`} />
             <Title>{movie.Title}</Title>
+            {/* <AddFavorite onClick={() => handleFavoritesClick(movie)}/> */}
             <div
               className="favor__wrapper"
               onClick={() => handleFavoritesClick(movie)}

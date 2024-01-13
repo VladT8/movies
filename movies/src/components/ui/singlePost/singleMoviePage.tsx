@@ -13,7 +13,7 @@ import {
   SinglePostimdbRating,
   SinglePostinfo,
 } from "./singleMoviePage.styles";
-import { AddFavorite } from "../../shared/favoriteIcon/AddFavorite";
+import { AddFavorite } from "../../shared/addFavorites/AddFavorite";
 import { useParams } from "react-router-dom";
 
 interface SingleMoviePageProps {

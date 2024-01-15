@@ -1,6 +1,10 @@
 import React, { FC, useContext } from "react";
 import { ThemeContext } from "../../themeContext";
-import { ProfilePageContainer } from "./profile.styles";
+import {
+  ProfileImage,
+  ProfilePageContainer,
+  ProfileTitle,
+} from "./profile.styles";
 import { AuthContext } from "../../authContext/authProvider";
 
 export const ProfilePage = () => {
@@ -12,6 +16,12 @@ export const ProfilePage = () => {
       className="profile"
       theme={themeContextData.stylesForTheme}
       myTheme={themeContextData.currentTheme}
-    ></ProfilePageContainer>
+    >
+      <ProfileImage
+        src="https://avatars.githubusercontent.com/u/6412038?s=280&v=4"
+        alt="Profile"
+      />
+      <ProfileTitle>ProfileName</ProfileTitle>
+    </ProfilePageContainer>
   );
 };

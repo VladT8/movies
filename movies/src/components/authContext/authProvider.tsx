@@ -2,8 +2,8 @@ import React, { FC, useState } from "react";
 
 interface AuthContextData {
   userAuth: boolean;
-  loginF: (callback?: () => void) => void;
-  logoutF: (callback?: () => void) => void;
+  loginF: () => void;
+  logoutF: () => void;
 }
 
 interface AuthProviderProps {
@@ -15,13 +15,11 @@ export const AuthContext = React.createContext({} as AuthContextData);
 export const AuthContextProvider: FC<AuthProviderProps> = ({ children }) => {
   const [isUserAuth, setIsUserAuth] = useState(false);
 
-  const logIn = (callback?: () => void) => {
+  const logIn = () => {
     setIsUserAuth(true);
-    // callback();
   };
-  const logOut = (callback?: () => void) => {
+  const logOut = () => {
     setIsUserAuth(false);
-    // callback();
   };
 
   return (

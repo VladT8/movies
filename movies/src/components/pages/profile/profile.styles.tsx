@@ -7,13 +7,22 @@ interface ProfilePageStyleProps {
 }
 
 export const ProfilePageContainer = styled.div<ProfilePageStyleProps>`
-  /* width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 16px;
   background-color: ${({ theme }) => theme?.background};
   color: ${({ theme }) => theme?.text};
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-  } */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+export const ProfileImage = styled.img`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+`;
+
+export const ProfileTitle = styled.h2`
+  font-size: 24px;
 `;

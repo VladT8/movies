@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FormComponent, formikComponentProps } from "../../shared/form/form";
 import { Field, ErrorMessage } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ButtonWrapper,
   CheckboxLabel,
@@ -13,7 +13,7 @@ import "./sign.scss";
 export const SignInComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const signIn = (e: any) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
@@ -23,8 +23,33 @@ export const SignInComponent = () => {
       .catch((error) => {
         console.log(error);
       });
+      navigate('/main')
   };
   return (
+    <div className="sign_container">
+      <form onSubmit={signIn}>
+        <h3>Login</h3>
+        <input
+          type="email"
+          placeholder="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Log In</button>
+        <div className="form__link">
+          don't have account? <Link to="/register">Registration</Link>
+        </div>
+      </form>
+    </div>
+
     // <FormComponent formName="SignIn" onSubmit={signIn}>
     //   <Field
     //     type="email"
@@ -51,33 +76,5 @@ export const SignInComponent = () => {
     //     Remember me
     //   </CheckboxLabel>
     // </FormComponent>
-
-    <div className="sign_container">
-      <form onSubmit={signIn}>
-        <h3>Login</h3>
-        <input
-          type="email"
-          placeholder="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Log In</button>
-        <div className="form__link">
-          don't have account? <Link to="/register">Registration</Link>
-        </div>
-      </form>
-    </div>
   );
 };
-
-// export const SignInComponent: React.FC<formikComponentProps> = ({
-//   formName,
-// })

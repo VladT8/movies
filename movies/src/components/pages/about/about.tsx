@@ -19,6 +19,8 @@ export const AboutPage = () => {
         <br />
         - Routing implemented with react-router-dom.
         <br />
+        - React Hook Form
+        <br />
         - Theme switching capability using useContext.
         <br />
         - User authentication and interaction with Google Firebase for data

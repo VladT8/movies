@@ -58,6 +58,7 @@ export const SignInComponent = () => {
         <div className="form__link">
           don't have account? <Link to="/register">Registration</Link>
         </div>
+        <p>for login: test@gmail.com, pass: Qwer1234</p>
       </form>
     </div>
 

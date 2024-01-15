@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FormComponent, formikComponentProps } from "../../shared/form/form";
 import { Field, ErrorMessage } from "formik";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,10 +10,14 @@ import {
 import { auth } from "../../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import "./sign.scss";
+import { AuthContext } from "../../authContext/authProvider";
 export const SignInComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const dataFromAuthContext = useContext(AuthContext);
+
   const signIn = (e: any) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
@@ -23,7 +27,12 @@ export const SignInComponent = () => {
       .catch((error) => {
         console.log(error);
       });
-      navigate('/main')
+    const form = e.target;
+    const username = form.email.value;
+    const password1 = form.password.value;
+    console.log(username, password1);
+    dataFromAuthContext.loginF();
+    navigate("/main");
   };
   return (
     <div className="sign_container">
@@ -31,6 +40,7 @@ export const SignInComponent = () => {
         <h3>Login</h3>
         <input
           type="email"
+          name="email"
           placeholder="email"
           required
           value={email}
@@ -38,6 +48,7 @@ export const SignInComponent = () => {
         />
         <input
           type="password"
+          name="password"
           placeholder="password"
           required
           value={password}

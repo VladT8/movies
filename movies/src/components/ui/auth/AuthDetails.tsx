@@ -3,6 +3,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "./sign.scss";
@@ -25,9 +26,10 @@ export const AuthDetails = () => {
   const userSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("sign out succes");
+        alert("sign out succes");
       })
       .catch((error) => console.log(error));
+      
   };
   return (
     <>

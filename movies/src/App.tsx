@@ -21,6 +21,8 @@ import { RemoveFavorites } from "./components/shared/removeFavorites/removeFavor
 import { json } from "stream/consumers";
 import { AboutPage } from "./components/pages/about/about";
 import { ProfilePage } from "./components/pages/profile/profile";
+import { AuthContextProvider } from "./components/authContext/authProvider";
+import { CheckAuthUser } from "./components/authContext/checkAuth";
 function App() {
   const [theme, setTheme] = useState<ThemeType>("light");
   const changeTheme = () => {
@@ -73,51 +75,60 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <ThemeContext.Provider
-        value={{ currentTheme: theme, stylesForTheme: Themes[theme] }}
-      >
-        <div className="App">
-          <div className="container">
-            <Header
-              changeTheme={changeTheme}
-              isActive={theme === "dark"}
-              searchValue={searchValue}
-              setSearchValue={setSearchValue}
-            />
-
-            <main className="main">
-              <Routes>
-                <Route path="/" element={<Main movies={movies} />} />
-                <Route path="/main" element={<Main movies={movies} />} />
-                <Route
-                  path="/favorites"
-                  element={
-                    <FavoritesPage
-                      favorites={favorites}
-                      addFavoriteMovie={addFavoriteMovie}
-                      removeFavoriteMovie={removeFavoriteMovie}
-                    />
-                  }
-                />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/register" element={<SignUpComponent />} />
-                <Route path="/login" element={<SignInComponent />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/movie/:imdbID" element={<SingleMoviePage />} />
-                <Route path="*" element={<NotFoundComponent />} />
-              </Routes>
-              <MovieList
-                movies={movies}
-                handleFavoritesClick={addFavoriteMovie}
-                favoriteComponent={AddFavorite}
+    <AuthContextProvider>
+      <Router>
+        <ThemeContext.Provider
+          value={{ currentTheme: theme, stylesForTheme: Themes[theme] }}
+        >
+          <div className="App">
+            <div className="container">
+              <Header
+                changeTheme={changeTheme}
+                isActive={theme === "dark"}
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
               />
-            </main>
-            <Footer />
+              <main className="main">
+                <Routes>
+                  <Route path="/" element={<Main movies={movies} />} />
+                  <Route path="/main" element={<Main movies={movies} />} />
+                  <Route
+                    path="/favorites"
+                    element={
+                      <FavoritesPage
+                        favorites={favorites}
+                        addFavoriteMovie={addFavoriteMovie}
+                        removeFavoriteMovie={removeFavoriteMovie}
+                      />
+                    }
+                  />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/register" element={<SignUpComponent />} />
+                  <Route path="/login" element={<SignInComponent />} />
+
+                  <Route
+                    path="/profile"
+                    element={
+                      <CheckAuthUser>
+                        <ProfilePage />
+                      </CheckAuthUser>
+                    }
+                  />
+                  <Route path="/movie/:imdbID" element={<SingleMoviePage />} />
+                  <Route path="*" element={<NotFoundComponent />} />
+                </Routes>
+                <MovieList
+                  movies={movies}
+                  handleFavoritesClick={addFavoriteMovie}
+                  favoriteComponent={AddFavorite}
+                />
+              </main>
+              <Footer />
+            </div>
           </div>
-        </div>
-      </ThemeContext.Provider>
-    </Router>
+        </ThemeContext.Provider>
+      </Router>
+    </AuthContextProvider>
   );
 }
 
